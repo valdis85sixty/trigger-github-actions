@@ -14,7 +14,7 @@ module.exports.handler = async (event) => {
         };
     }
 
-    response = await axios.post(`https://api.github.com/repos/${githubUser}/${githubRepo}/dispatches`, {
+    let response = await axios.post(`https://api.github.com/repos/${githubUser}/${githubRepo}/dispatches`, {
         event_type: 'prismic-webhook-build',
     }, {
         auth: {
