@@ -1,0 +1,19 @@
+service: trigger-github-actions
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  triggerGithubActions:
+    handler: prismicWebhook.handler
+    environment:
+      PRISMIC_SECRET: ""
+      GITHUB_USER: ""
+      GITHUB_REPO: ""
+      GITHUB_TOKEN: ""
+    events:
+      - httpApi:
+          path: /
+          method: post
